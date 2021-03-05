@@ -13,7 +13,7 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Dictionary<string, int> max = new Dictionary<string, int>();
+            List<Out> max = new List<Out>();
             using (var reader1 = new StreamReader(@"C:\orders.csv"))
             using (var reader2 = new StreamReader(@"C:\order_items.csv"))
             using (var reader3 = new StreamReader(@"C:\products.csv"))
@@ -42,10 +42,25 @@ namespace ConsoleApp2
                     (time, price) => new
                     {
                         time = time.t,
+                        name = price.NAME,
                         quantity = time.QUANTITY,
                         price = price.PRICE_PER_UNIT
-                    }).GroupBy(day=>day.time);
-            }            
+                    }).GroupBy(day => day.time.Day);
+                foreach (var item in result)
+                {
+                    max.Add(new Out()
+                    {
+                        Date = item.Where(max => (max.price * max.quantity) == item.Select(x => x.price * x.quantity).Max()).Select(day => day.time).FirstOrDefault(),
+                        Name = item.Where(max => (max.price * max.quantity) == item.Select(x => x.price * x.quantity).Max()).Select(day => day.name).FirstOrDefault(),
+                        Max = item.Select(x => x.price * x.quantity).Max()
+                    });
+                }
+                foreach (var item in max)
+                {
+                    Console.WriteLine($"{item.Date.Date.Month}/{item.Date.Date.Day}/{item.Date.Date.Year} {item.Name} {item.Max}");
+                }
+            }
+
         }
     }
 }

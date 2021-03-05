@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XXDtT3G5ZOqD0eZZtyGyHoVRwprNdwtH/CWJNL5t0vkByQG4MoPzXODkKBUOZusukwpbdStLs+9QFrW/jnoQXg==",
+  "dgSpecHash": "QRYTrh1Qj+M791NecjrY9SF+noOLGFHksgdLqw24MHoqH8YGUOg6Qut9J5GRa78wYY/ve4lVWo2BDpZQsPm/zg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tkach\\source\\repos\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
+  "projectFilePath": "C:\\Users\\tkach\\Documents\\GitHub\\test\\ConsoleApp2\\ConsoleApp2\\ConsoleApp2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tkach\\.nuget\\packages\\csvhelper\\26.0.1\\csvhelper.26.0.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512"
