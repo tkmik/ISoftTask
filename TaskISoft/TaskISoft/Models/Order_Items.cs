@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TaskISoft
+namespace ConsoleApp2
 {
     class Order_Items
     {

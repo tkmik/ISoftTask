@@ -5,7 +5,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 
-namespace TaskISoft
+namespace ConsoleApp2
 {
     class Program
     {
@@ -42,7 +42,7 @@ namespace TaskISoft
                         name = products.NAME,
                         quantity = order_times.quantity,
                         price = products.PRICE_PER_UNIT
-                    }).GroupBy(day => day.datetime.Day);
+                    }).OrderBy(day=>day.datetime.Day).GroupBy(day => day.datetime.Day);
                 foreach (var item in result)
                 {
                     max.Add(new Out()
@@ -52,14 +52,15 @@ namespace TaskISoft
                         Max = item.Select(max => max.price * max.quantity).Max()
                     });
                 }
+                Console.WriteLine($"{"d",2}/{"m",1}/{"year",4}{"name",15}{"max price",15}\n");
                 foreach (var item in max)
                 {
                     Console.WriteLine($"" +
-                        $"{item.Date.Date.Day}/" +
-                        $"{item.Date.Date.Month}/" +
-                        $"{item.Date.Date.Year} " +
-                        $"{item.Name} " +
-                        $"{item.Max}");
+                        $"{item.Date.Date.Day,2}/" +
+                        $"{item.Date.Date.Month,1}/" +
+                        $"{item.Date.Date.Year,4}" +
+                        $"{item.Name, 15}" +
+                        $"{item.Max, 15}");
                 }
             }
         }
